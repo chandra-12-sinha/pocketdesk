@@ -11,5 +11,9 @@
 } */
  #pokemon-name-search{
     padding: 1rem;
-    width: 500px;
+    width: 700px;
+ }
+ #pokemon-name-search:focus{
+        outline: none;
+        
  }
