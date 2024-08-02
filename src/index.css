@@ -3,7 +3,7 @@
     box-sizing: border-box;
     font-family:"MuseoModerno", sans-serif ;
 }
-body{
+/* body{
     height: 100%;
     width: 100%;
     /* overflow: hidden; */
@@ -12,4 +12,7 @@ body{
     justify-content: center;
     align-items: center; */
    
+/* }  */
+body{
+    background-color: antiquewhite;
 }

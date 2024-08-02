@@ -1,11 +1,13 @@
-import React from 'react'
+import "./Pokemon.css"
 
 const Pokemon = ({name, image}) => {
   return (
-    <div>
-      <div>{name}</div>
-      <div><img src={image} alt="" /></div>
-    </div>
+    
+      <div className='pokemon'>
+        <div className='pokemon-name'>{name}</div>
+        <div><img className='pokemon-img' src={image} alt="" /></div>
+      </div>
+    
   )
 }
 
