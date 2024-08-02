@@ -5,6 +5,7 @@
     align-items: center;
 
 }
-.name{
-        text-align: center;
-}
+
+ .pokedex_heading{
+    text-align: center;
+ }
