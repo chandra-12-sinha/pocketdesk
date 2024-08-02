@@ -10,7 +10,7 @@ const PokemonLIst = () => {
         downloadpokemon();
     },[])
   return (
-    <div className=''>
+    <div className='pokemon-list-wrapper'>
       PokemonLIst
     </div>
   )
