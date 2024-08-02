@@ -1,16 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
-.search-wrapper{
-    width: 100%;
 
-
-}
-/* .search{
-    padding: 1rem;
-    width: 609px ;
-    font-family:"MuseoModerno", sans-serif; ;
-} */
  #pokemon-name-search{
-    padding: 1rem;
+    padding: 1.5rem;
     width: 700px;
  }
  #pokemon-name-search:focus{
