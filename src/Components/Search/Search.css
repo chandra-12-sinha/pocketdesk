@@ -4,8 +4,12 @@
 
 
 }
-.search{
+/* .search{
     padding: 1rem;
     width: 609px ;
     font-family:"MuseoModerno", sans-serif; ;
-}
+} */
+ #pokemon-name-search{
+    padding: 1rem;
+    width: 500px;
+ }
