@@ -6,13 +6,18 @@ import Pokemon from "../PokemonDetails/Pokemon";
 const PokemonLIst = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const POKEDEX_URL = "https://pokeapi.co/api/v2/pokemon/";
+  const[pokedexUrl, setPokedexUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
+  const [nexUrl, setNexUrl] = useState("");
+  const[prevUrl, setPrevUrl] = useState('');
 
   async function downloadpokemon() {
-    let response = await axios.get(POKEDEX_URL); /// 20 pokemon list 
-
+    setIsLoading(true)
+    const response = await axios.get(pokedexUrl)// 20pokemon list
     console.log(response);
     const pokemonResults = response.data.results; //we get the array of pokemons from result
+   console.log(response.data);
+   setNexUrl(response.data.next)
+   setPrevUrl(response.data.previous);
     console.log(pokemonResults);
     /*
             iterating over the array of pokemons, and using their url, to create an array of promises
@@ -24,7 +29,7 @@ const PokemonLIst = () => {
     console.log(pokemonResultsPromise);
     const pokemonData = await axios.all(pokemonResultsPromise);//// array of 20 pokemon detailed data
    console.log(pokemonData);
-    // const result = pokemonData.map((pokeData) => {
+  
         // now iterate on the data of each pokemon, and extract id, name, image and types.
      const pokemonListResult = pokemonData.map((pokeData) =>{
       const pokemon = pokeData.data;
@@ -44,7 +49,7 @@ const PokemonLIst = () => {
   }
   useEffect(() => {
     downloadpokemon();
-  }, []);
+  }, [pokedexUrl]);
   return (
     <div className="pokemon-list-wrapper">
       <div className="pokemon-wrapper">
@@ -52,8 +57,8 @@ const PokemonLIst = () => {
         )}
       </div>
       <div className="controls">
-        <button>Prev</button>
-        <button>Next</button>
+        <button disabled={prevUrl == null} onClick={()=> setPokedexUrl(prevUrl)}>Prev</button>
+        <button disabled= {nexUrl == null} onClick={()=>setPokedexUrl(nexUrl)}>Next</button>
       </div>
     </div>
   );
