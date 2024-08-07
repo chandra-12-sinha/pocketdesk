@@ -1,0 +1,8 @@
+#pokedex-heading{
+    width: 100%;
+}
+ . pokedex-heading{
+    display: flex;
+    text-align: center;
+    color:brown;
+ }

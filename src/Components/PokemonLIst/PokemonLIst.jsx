@@ -13,12 +13,13 @@ const PokemonLIst = () => {
   async function downloadpokemon() {
     setIsLoading(true)
     const response = await axios.get(pokedexUrl)// 20pokemon list
-    console.log(response);
+
+    // console.log(response);
     const pokemonResults = response.data.results; //we get the array of pokemons from result
-   console.log(response.data);
+    //console.log(response.data);
    setNexUrl(response.data.next)
    setPrevUrl(response.data.previous);
-    console.log(pokemonResults);
+    //console.log(pokemonResults);
     /*
             iterating over the array of pokemons, and using their url, to create an array of promises
             that will download those 20 pokemons.  
@@ -26,14 +27,14 @@ const PokemonLIst = () => {
     const pokemonResultsPromise = pokemonResults.map((pokemon) =>
       axios.get(pokemon.url)
     );
-    console.log(pokemonResultsPromise);  
+   // console.log(pokemonResultsPromise);  
     const pokemonData = await axios.all(pokemonResultsPromise);//// array of 20 pokemon detailed data
-   console.log(pokemonData);
+   //console.log(pokemonData);
   
         // now iterate on the data of each pokemon, and extract id, name, image and types.
      const pokemonListResult = pokemonData.map((pokeData) =>{
       const pokemon = pokeData.data;
-      console.log(pokemon);
+      //console.log(pokemon);
       return {
         id: pokemon.id,
         name: pokemon.name,
@@ -43,7 +44,7 @@ const PokemonLIst = () => {
      })
        
     
-   console.log(pokemonListResult);
+  // console.log(pokemonListResult);
    setPokemonList(pokemonListResult)
    setIsLoading(false);
   }
