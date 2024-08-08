@@ -4,25 +4,25 @@
     align-items: center;
 }
 
-.pokemon-details-name{
+.pokemon-detail-name{
     font-size: 20px;
     color: black;
     margin-top: 0.1rem;
 }
 
-.pokemon-details-name > span{
+.pokemon-detail-name > span{
     letter-spacing: 0.2rem;
     text-transform: uppercase;
 
 }
 
-.pokemon-dtails-types{
+.pokemon-details-types{
     display: flex;
     gap: 3rem;
     margin-top: 1rem;
-    font-size: large;
+    font-size: larger;
 }
-.pokemon-detail-types > div{
+.pokemon-details-types > div{
     border: 1px solid gainsboro;
     border-radius: 15px;
     padding: 0.6rem;

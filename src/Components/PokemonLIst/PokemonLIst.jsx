@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./PokemonLIst.css";
 import Pokemon from "../PokemonDetails/Pokemon";
 
-const PokemonLIst = () => {
+const PokemonLIst = ({search}) => {
   //const [pokemonList, setPokemonList] = useState([]);
   //const [isLoading, setIsLoading] = useState(true);
   //const[pokedexUrl, setPokedexUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
@@ -67,10 +67,13 @@ const PokemonLIst = () => {
   useEffect(() => {
     downloadpokemon();
   }, [pokemonListState.pokedexUrl]);
+
+  const filteredPokemonList = pokemonListState.pokemonList.filter((pokemon)=> pokemon.name.toLowerCase().includes(search.toLowerCase()))
+
   return (
     <div className="pokemon-list-wrapper">
       <div className="pokemon-wrapper">
-        {(pokemonListState.isLoading)? "Loading...": pokemonListState.pokemonList.map((p) => <Pokemon name = {p.name} image = {p.image} id ={p.id} key = {p.id}/>
+        {(pokemonListState.isLoading)? "Loading...": filteredPokemonList.map((p) => <Pokemon name = {p.name} image = {p.image} id ={p.id} key = {p.id}/>
         )}
       </div>
       <div className="controls">

@@ -1,9 +1,15 @@
-import React from 'react'
+
 import "./Search.css"
-function Search() {
+function Search( {search, setSearch}) {
+
+  const handleChange = (e)=>{
+    setSearch(e.target.value)
+  }
   return (
-    <div className='search-wrapper'>   
-      <input id='pokemon-name-search' type="text" placeholder='pokemon search..' />
+    <div className='search-wrapper'>
+
+      <input id='pokemon-name-search' type="text" placeholder='pokemon search..' value={search} onChange={handleChange} />
+   
     </div>
   )
 }
